@@ -7,6 +7,8 @@ project(${lib_base_name} VERSION 1.0.0 LANGUAGES CXX)
 OPTION(BUILD_SHARED_LIBS "Build shared libraries" ON)
 OPTION(BUILD_STATIC_LIBS "Build static libraries" ON)
 
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(Boost 1.56 REQUIRED COMPONENTS
              system filesystem)
 
@@ -22,12 +24,14 @@ set(LINK_DIRECTORIES
 # Set up source files
 set(SOURCES
   src/Module.cpp
+  src/core/zip.cpp
 )
 
 set(HEADERS
   src/Module.hpp
   src/Interface.hpp
   src/core/config.hpp
+  src/core/zip.hpp
 )
 
 set(SHARED_COMPILE_DEFINITIONS
@@ -85,8 +89,6 @@ endif()
 
 set(SHARED_LINK_LIBRARIES ${LIBRARIES})
 set(STATIC_LINK_LIBRARIES ${LIBRARIES})
-
-set(CMAKE_CXX_STANDARD 17)
 
 # Set up library names
 if(BUILD_SHARED_LIBS)
@@ -188,7 +190,6 @@ add_executable(example
 )
 target_include_directories(example PUBLIC
     src/
-    minizip::includedir
 )
 target_link_libraries(example PUBLIC
     ${lib_name}

@@ -46,9 +46,9 @@ void ModuleExport::setSettings(std::shared_ptr<rapidjson::Value> data) {
 #endif
 }
 
-std::shared_ptr<Pdf> ModuleExport::newPdf(){
-    std::shared_ptr<Pdf> modelPtr = std::make_shared<Pdf>();
-    pdfList.push_back(modelPtr);
+std::shared_ptr<Docx> ModuleExport::newDocx(){
+    std::shared_ptr<Docx> modelPtr = std::make_shared<Docx>();
+    DocxList.push_back(modelPtr);
     return modelPtr;
 }
 

@@ -1,13 +1,13 @@
 /*
- * @name Filesystem Database Module
+ * @name Bookfiler™ Docx Module
  * @author Branden Lee
  * @version 1.00
- * @license GNU LGPL v3
- * @brief filesystem database and utilities
+ * @license MIT
+ * @brief docx manipulation.
  */
 
-#ifndef BOOKFILER_MODULE_PDF_EXPORT_H
-#define BOOKFILER_MODULE_PDF_EXPORT_H
+#ifndef BOOKFILER_MODULE_DOCX_EXPORT_H
+#define BOOKFILER_MODULE_DOCX_EXPORT_H
 
 // config
 #include "core/config.hpp"
@@ -50,9 +50,9 @@ namespace bookfiler {
  * This is the controller, the view is a QT widget, and the model is the API
  * storage
  */
-class ModuleExport : public PdfInterface {
+class ModuleExport : public DocxInterface {
 private:
-  std::vector<std::shared_ptr<Pdf>> pdfList;
+  std::vector<std::shared_ptr<Docx>> DocxList;
 
 public:
   ModuleExport();
@@ -66,15 +66,15 @@ public:
           std::function<void(std::shared_ptr<rapidjson::Document>)>>>
           moduleCallbackMap);
   void setSettings(std::shared_ptr<rapidjson::Value> data);
-  std::shared_ptr<Pdf> newPdf();
+  std::shared_ptr<Docx> newDocx();
 };
 
 // Exporting `my_namespace::module` variable with alias name `module`
 // (Has the same effect as `BOOST_DLL_ALIAS(my_namespace::module, module)`)
-extern "C" BOOST_SYMBOL_EXPORT ModuleExport bookfilerPdfModule;
-ModuleExport bookfilerPdfModule;
+extern "C" BOOST_SYMBOL_EXPORT ModuleExport bookfilerDocxModule;
+ModuleExport bookfilerDocxModule;
 
 } // namespace bookfiler
 
 #endif
-// end BOOKFILER_MODULE_PDF_EXPORT_H
+// end BOOKFILER_MODULE_DOCX_EXPORT_H
