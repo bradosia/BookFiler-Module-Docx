@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   std::shared_ptr<ZipReader> zipReader = std::make_shared<ZipReader>();
   std::string fileName = "resources/test.docx";
   std::string imagePath = "word/media/image1.png";
-  std::string outPath = "tes/a.png";
+  std::string outPath = "test/a.png";
   std::string documentPath = "word/document.xml";
   int32_t err = MZ_OK;
 

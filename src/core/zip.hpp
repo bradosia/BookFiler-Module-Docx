@@ -55,6 +55,9 @@ public:
   ~ZipReader();
   int32_t open(std::string fileName);
   int32_t extractEntryAll(std::shared_ptr<ZipFileMap> ZipFileEntryMap);
+  /* If a path without a directory is used the the error is received:
+   * MZ_OPEN_ERROR	-111	Stream open error
+   */
   int32_t saveToFile(std::string resourcePath, std::string);
   int32_t getResourceSize(std::string resourcePath, long long &resourceSize);
   int32_t saveToMemory(std::string resourcePath, char *&buffer, long long resourceSize);
